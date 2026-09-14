@@ -56,9 +56,9 @@ a:hover {
 .brand-name {
   color: var(--terracotta);
   font-family: Cambria, Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.2em;
 }
 
 .brand-description {
@@ -398,4 +398,460 @@ main {
   border-radius: 999px;
   color: var(--muted);
   font-size: 0.76rem;
+}/* Masthead refinement */
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 1.35rem;
+  max-width: 720px;
+}
+
+.brand-name {
+  color: var(--brown);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1;
+}/* Homepage opening composition */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 720px) 1fr;
+  column-gap: 3rem;
+}
+
+.hero > .eyebrow,
+.hero > h1 {
+  grid-column: 1 / -1;
+}
+
+.hero-intro {
+  grid-column: 1;
+  max-width: 720px;
+  margin: 3.5rem 0 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.2rem, 1.7vw, 1.75rem);
+  line-height: 1.7;
+}
+
+.hero > .text-link {
+  grid-column: 2;
+  align-self: end;
+  justify-self: end;
+  margin: 3.5rem 0 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.hero > .text-link::after {
+  content: none;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero > .eyebrow,
+  .hero > h1,
+  .hero-intro,
+  .hero > .text-link {
+    grid-column: 1;
+  }
+
+  .hero > .text-link {
+    justify-self: start;
+    margin-top: 1.5rem;
+  }
+}.hero > .eyebrow {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}/* Featured research panel */
+
+.section:has(.feature-card) {
+  margin-top: 2rem;
+  padding: 4.5rem 4rem;
+  border-top: 4px solid var(--terracotta);
+  border-bottom: none;
+  background: var(--soft);
+}
+
+.section:has(.feature-card) > .eyebrow {
+  margin-bottom: 2.5rem;
+}
+
+.feature-card {
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 6rem;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--brown);
+}
+
+.feature-card > div:first-child > .eyebrow {
+  display: none;
+}
+
+.feature-card h2 {
+  color: var(--terracotta);
+  font-size: clamp(2.8rem, 4.5vw, 4.7rem);
+  line-height: 1.08;
+}
+
+.feature-card p {
+  color: var(--brown);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.feature-card .text-link {
+  color: var(--brown);
+  font-weight: 400;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.feature-card .text-link::after {
+  content: none;
+}
+
+@media (max-width: 850px) {
+  .section:has(.feature-card) {
+    padding: 3rem 1.5rem;
+  }
+
+  .feature-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}/* Quietening the featured panel */
+
+.section:has(.feature-card) {
+  border-top-width: 2px;
+  background: #eee3d1;
+}
+
+.section:has(.feature-card) > .eyebrow {
+  color: #9a4933;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+.feature-card h2 {
+  color: #9a4933;
+  font-size: clamp(2.6rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.12;
+}/* Notebook and article-card refinement */
+
+.section:has(.card-grid) .section-heading {
+  font-size: clamp(2.1rem, 3vw, 3rem);
+}
+
+.section:has(.card-grid) .section-caption {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 4rem;
+  border: none;
+  background: transparent;
+}
+
+.article-card {
+  min-height: 0;
+  padding: 2rem 0 1rem;
+  border-top: 1px solid var(--line);
+  background: transparent;
+}
+
+.article-card h3 {
+  margin: 2rem 0 1rem;
+  font-size: clamp(1.8rem, 2.7vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.article-card p {
+  color: var(--brown);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.article-card .text-link {
+  color: var(--brown);
+  font-weight: 400;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.article-card .text-link::after {
+  content: none;
+}
+
+.article-card:first-child h3,
+.article-card:first-child p,
+.article-card:first-child .text-link {
+  color: #9a4933;
+}
+
+@media (max-width: 850px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}/* Exact notebook colour treatment */
+
+.section:has(.section-caption) .category {
+  color: #9d4933;
+}
+
+.section:has(.section-caption) .article-card:first-child h3,
+.section:has(.section-caption) .article-card:first-child p,
+.section:has(.section-caption) .article-card:first-child .text-link {
+  color: #9d4933;
+}
+
+.section:has(.section-caption) .article-card:nth-child(2) h3,
+.section:has(.section-caption) .article-card:nth-child(2) p,
+.section:has(.section-caption) .article-card:nth-child(2) .text-link {
+  color: #3b2a21;
+}
+
+.section:has(.section-caption) .section-caption {
+  color: #765b4b;
+}/* Final notebook colour and heading size */
+
+.section:has(.section-caption) .section-heading {
+  font-size: clamp(2rem, 2.7vw, 2.7rem);
+}
+
+.section:has(.section-caption) .article-card h3,
+.section:has(.section-caption) .article-card p,
+.section:has(.section-caption) .article-card .text-link {
+  color: var(--brown) !important;
+}
+
+.section:has(.section-caption) .article-card .text-link {
+  border-bottom-color: var(--brown);
+}/* Practical-work project index */
+
+.section:has(.card-grid):not(:has(.section-caption)) {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  column-gap: 2rem;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) > .section-heading {
+  grid-column: 1;
+  font-size: clamp(2rem, 2.7vw, 2.7rem);
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) > .text-link {
+  grid-column: 2;
+  margin: 0;
+  color: var(--brown);
+  font-weight: 400;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) > .text-link::after {
+  content: none;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .card-grid {
+  grid-column: 1 / -1;
+  display: block;
+  margin-top: 2.5rem;
+  counter-reset: project-number;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card {
+  display: grid;
+  grid-template-columns: 70px minmax(260px, 0.8fr) minmax(420px, 1.3fr) 30px;
+  align-items: center;
+  gap: 2rem;
+  min-height: 160px;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  counter-increment: project-number;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card::before {
+  grid-column: 1;
+  content: counter(project-number, decimal-leading-zero);
+  color: var(--terracotta);
+  font-family: Cambria, Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card .category {
+  display: none;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card h3 {
+  grid-column: 2;
+  margin: 0;
+  color: var(--brown) !important;
+  font-size: clamp(1.65rem, 2.2vw, 2.25rem);
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card p {
+  grid-column: 3;
+  margin: 0;
+  color: #765b4b !important;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card .text-link {
+  grid-column: 4;
+  justify-self: end;
+  margin: 0;
+  border: none;
+  color: var(--brown) !important;
+  font-size: 0;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card .text-link::after {
+  content: "↗";
+  font-size: 1.1rem;
+}
+
+@media (max-width: 850px) {
+  .section:has(.card-grid):not(:has(.section-caption)) {
+    display: block;
+  }
+
+  .section:has(.card-grid):not(:has(.section-caption)) > .text-link {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
+  .section:has(.card-grid):not(:has(.section-caption)) .article-card {
+    grid-template-columns: 45px 1fr;
+    gap: 0.75rem 1rem;
+    padding: 2rem 0;
+  }
+
+  .section:has(.card-grid):not(:has(.section-caption)) .article-card::before {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .section:has(.card-grid):not(:has(.section-caption)) .article-card h3,
+  .section:has(.card-grid):not(:has(.section-caption)) .article-card p {
+    grid-column: 2;
+  }
+
+  .section:has(.card-grid):not(:has(.section-caption)) .article-card .text-link {
+    grid-column: 2;
+    justify-self: start;
+  }
+}/* Compact practical-work spacing */
+
+.section:has(.card-grid):not(:has(.section-caption)) {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .card-grid {
+  margin-top: 2rem;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card {
+  min-height: 125px;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card h3 {
+  font-size: clamp(1.55rem, 2vw, 2.05rem);
+}
+
+.section:has(.card-grid):not(:has(.section-caption)) .article-card p {
+  line-height: 1.55;
+}/* Homepage closing section and footer */
+
+.closing-panel {
+  display: block;
+  padding: 4.5rem 1.5rem 6rem;
+}
+
+.closing-panel .eyebrow {
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.closing-panel > div:last-child {
+  max-width: 850px;
+}
+
+.closing-panel h2 {
+  max-width: 720px;
+  font-size: clamp(2.7rem, 4vw, 4.2rem);
+  line-height: 1.15;
+}
+
+.closing-panel p:not(.eyebrow) {
+  max-width: 850px;
+  margin: 2rem 0 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.closing-panel .text-link {
+  margin-top: 0.6rem;
+  color: var(--brown);
+  font-weight: 400;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.closing-panel .text-link::after {
+  content: none;
+}
+
+.site-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2.5rem 4vw;
+  border-top: 1px solid var(--line);
+  background: var(--cream);
+  color: #765b4b;
+  font-size: 0.82rem;
+}
+
+.footer-identity p,
+.footer-links {
+  margin: 0;
+}
+
+.footer-identity p + p {
+  margin-top: 0.25rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 850px) {
+  .closing-panel {
+    padding: 3.5rem 0 4.5rem;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

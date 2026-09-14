@@ -41,9 +41,16 @@ export default function RootLayout({
         <main>{children}</main>
 
         <footer className="site-footer">
-          <p>Jelilat’s Data Notes</p>
-          <p>I write about what I am learning as I find my place between privacy and security.</p>
-        </footer>
+  <div className="footer-identity">
+    <p>Jelilat’s Data Notes</p>
+    <p>Learning in public, at my own pace.</p>
+  </div>
+
+  <nav className="footer-links" aria-label="Footer navigation">
+    <Link href="/about">About</Link>
+    <Link href="/site-notice">Site notice</Link>
+  </nav>
+</footer>
       </body>
     </html>
   );
