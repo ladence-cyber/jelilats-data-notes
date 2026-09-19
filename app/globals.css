@@ -113,6 +113,12 @@ main {
   line-height: 0.93;
   white-space: pre-line;
 }
+@media (min-width: 851px) {
+  .hero h1 {
+    max-width: 1050px;
+    font-size: clamp(3.6rem, 7vw, 7.2rem);
+  }
+}
 
 .hero h1 em {
   color: var(--terracotta);
