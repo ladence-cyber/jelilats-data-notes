@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,14 +29,7 @@ export default function RootLayout({
             </span>
           </Link>
 
-          <nav className="navigation" aria-label="Main navigation">
-            <Link href="/projects">Projects</Link>
-            <Link href="/research">Research</Link>
-            <Link href="/privacy-notes">Privacy notes</Link>
-            <Link href="/learning-notes">Learning notes</Link>
-            <Link href="/journey">Journey</Link>
-            <Link href="/about">About</Link>
-          </nav>
+         <Navigation />
         </header>
 
         <main>{children}</main>

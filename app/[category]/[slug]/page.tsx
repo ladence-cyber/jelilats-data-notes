@@ -68,26 +68,28 @@ export default async function ArticlePage({
 
       <RichText value={article.body} />
 
-      <div className="page-shell article-footer">
-        {article.tags && article.tags.length > 0 && (
-          <ul className="tag-list" aria-label="Article topics">
-            {article.tags.map((tag) => (
-              <li key={tag}>{tag}</li>
-            ))}
-          </ul>
-        )}
+    {((article.tags && article.tags.length > 0) || article.githubUrl) && (
+  <div className="page-shell article-footer">
+    {article.tags && article.tags.length > 0 && (
+      <ul className="tag-list" aria-label="Article topics">
+        {article.tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    )}
 
-        {article.githubUrl && (
-          <a
-            className="text-link"
-            href={article.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View the project on GitHub
-          </a>
-        )}
-      </div>
+    {article.githubUrl && (
+      <a
+        className="text-link"
+        href={article.githubUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        View the project on GitHub
+      </a>
+    )}
+  </div>
+)}
     </>
   );
 }

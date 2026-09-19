@@ -33,7 +33,9 @@ export type HomePage = {
   featureArticle?: Article;
   featuredNotes?: Article[];
   featuredProjects?: Article[];
+  projectOrder?: Article[];
 };
+
 
 export type AboutPage = {
   label?: string;
@@ -127,6 +129,18 @@ export async function getJourneyPage() {
 }
 
 export async function getArticles(category?: string) {
+  if (category === "projects") {
+    const orderedProjects = await sanityClient.fetch<Article[] | null>(`
+      *[_type == "homePage" && _id == "homePage"][0].projectOrder[]->{
+        ${articleFields}
+      }
+    `);
+
+    if (orderedProjects && orderedProjects.length > 0) {
+      return orderedProjects;
+    }
+  }
+
   return sanityClient.fetch<Article[]>(
     `*[
       _type == "article" &&

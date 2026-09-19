@@ -75,6 +75,9 @@ a:hover {
   padding-top: 0.2rem;
   font-size: 0.84rem;
 }
+.navigation a.active {
+  color: var(--terracotta);
+}
 
 main {
   min-height: 72vh;
@@ -136,6 +139,9 @@ main {
 
 .text-link::after {
   content: " →";
+}
+.milestone .text-link::after {
+  content: none;
 }
 
 .section {
@@ -265,8 +271,9 @@ main {
 }
 
 .milestone-list {
-  padding: 3rem 0 7rem;
+  padding: 3rem 0 3rem;
 }
+
 
 .milestone {
   display: grid;
