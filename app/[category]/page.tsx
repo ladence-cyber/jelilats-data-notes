@@ -17,7 +17,7 @@ export async function generateMetadata({
   const section = await getSectionPage(category);
 
   return {
-    title: section?.title || "Articles",
+    title: section?.heading || "Articles",
   };
 }
 

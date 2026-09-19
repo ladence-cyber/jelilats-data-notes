@@ -62,7 +62,7 @@ export type JourneyPage = {
 export type SectionPage = {
   slug: string;
   label?: string;
-  title: string;
+  heading: string;
   intro?: string;
   articleLinkLabel?: string;
 };
@@ -139,7 +139,7 @@ export async function getSectionPage(category: string) {
     `*[_type == "sectionPage" && slug.current == $category][0] {
       "slug": slug.current,
       label,
-      "title": heading,
+      heading,
       intro,
       articleLinkLabel
     }`,
