@@ -59,6 +59,13 @@ export type JourneyPage = {
   intro?: string;
   milestones?: JourneyMilestone[];
 };
+export type SectionPage = {
+  slug: string;
+  label?: string;
+  title: string;
+  intro?: string;
+  articleLinkLabel?: string;
+};
 
 const articleFields = `
   _id,
@@ -126,6 +133,18 @@ export async function getJourneyPage() {
       }
     }
   `);
+}
+export async function getSectionPage(category: string) {
+  return sanityClient.fetch<SectionPage | null>(
+    `*[_type == "sectionPage" && slug.current == $category][0] {
+      "slug": slug.current,
+      label,
+      "title": heading,
+      intro,
+      articleLinkLabel
+    }`,
+    {category}
+  );
 }
 
 export async function getArticles(category?: string) {

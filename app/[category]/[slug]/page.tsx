@@ -2,20 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import RichText from "@/components/RichText";
-import { getArticle } from "@/lib/content";
+import { getArticle, getSectionPage } from "@/lib/content";
 
 export const revalidate = 60;
 
-function sectionTitle(category: string) {
-  const titles: Record<string, string> = {
-    projects: "Projects",
-    research: "Research",
-    "privacy-notes": "Privacy Notes",
-    "learning-notes": "Learning Notes",
-  };
 
-  return titles[category] || "Articles";
-}
 
 export async function generateMetadata({
   params,
@@ -38,8 +29,9 @@ export default async function ArticlePage({
 }) {
   const { category, slug } = await params;
   const article = await getArticle(slug);
+  const section = await getSectionPage(category);
 
-  if (!article || article.category !== category) notFound();
+ if (!article || article.category !== category || !section) notFound();
 
   const date = article.publishedAt
     ? new Intl.DateTimeFormat("en", {
@@ -54,10 +46,10 @@ export default async function ArticlePage({
       <div className="page-shell">
         <header className="page-header article-header">
           <Link className="text-link back-link" href={`/${category}`}>
-            {sectionTitle(category)}
+            {section.heading}
           </Link>
 
-          <p className="eyebrow">{sectionTitle(category)}</p>
+          <p className="eyebrow">{section.heading}</p>
           <h1 className="page-heading">{article.title}</h1>
 
           {article.intro && <p className="page-intro">{article.intro}</p>}
